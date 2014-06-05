@@ -1,0 +1,14 @@
+---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+<ipython-input-42-87f18a087aa3> in <module>()
+----> 1 manipprob.MoveManipulator(goal=goal_pos,execute=False)
+
+/usr/local/lib/python2.7/dist-packages/openravepy/_openravepy_/interfaces/BaseManipulation.pyc in MoveManipulator(self, goal, maxiter, execute, outputtraj, maxtries, goals, steplength, outputtrajobj, jitter, releasegil)
+    118         """
+    119         if goal is not None:
+--> 120             assert(len(goal) == len(self.robot.GetActiveManipulator().GetArmIndices()))
+    121         return self._MoveJoints('MoveManipulator',goal=goal,steplength=steplength,maxiter=maxiter,maxtries=maxtries,execute=execute,outputtraj=outputtraj,goals=goals,outputtrajobj=outputtrajobj,jitter=jitter,releasegil=releasegil)
+    122 
+
+AssertionError: 
+
