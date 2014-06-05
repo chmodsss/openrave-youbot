@@ -4,7 +4,6 @@ env = Environment()
 env.Load('environment/bullet_obstacle.env.xml')
 env.SetViewer('qtcoin')
 robot = env.GetRobots()[0]
-box = env.GetBodies()[2]
 current_pos = robot.GetDOFValues()
 init_pos = current_pos
 time.sleep(2)
@@ -12,8 +11,10 @@ current_pos[0]=0.01
 current_pos[1]=0.01
 robot.SetDOFValues(current_pos)
 time.sleep(5)
-#robot.SetDOFValues([0.01,0.01,0.0,0.8,1.3,0.7,0.0])
-#robot.SetDOFValues([0.01,0.01,0.0,-0.9,-1.4,-1.9,0.0])
-goal_pos = [0.01,0.01,0.0,1.15,1.2,0.55,0.0]
-robot.SetDOFValues(goal_pos)
-time.sleep(10)
+robot.SetDOFValues(([ 0.01,0.01,-0.7,1.1,4.2,-0.2,0.0]))
+RaveSetDebugLevel(DebugLevel.Debug)
+goal_pos = [0.81,0.31,1.6,0.85,1.5]
+manipprob = interfaces.BaseManipulation(robot)
+manipprob.MoveManipulator(goal=goal_pos)
+robot.WaitForController(0)
+time.sleep(5)

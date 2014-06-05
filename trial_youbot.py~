@@ -1,7 +1,7 @@
 from openravepy import *
 import time
 env = Environment()
-env.Load('environment/bullet_obstacle.env.xml')
+env.Load('environment/bullet_no_cylinder.env.xml')
 env.SetViewer('qtcoin')
 robot = env.GetRobots()[0]
 box = env.GetBodies()[2]

@@ -10,9 +10,11 @@ time.sleep(2)
 current_pos[0]=0.01
 current_pos[1]=0.01
 robot.SetDOFValues(current_pos)
+time.sleep(5)
+robot.SetDOFValues(([ 0.01,0.01,-0.7,1.1,1.2,0.4,0.0]))
 RaveSetDebugLevel(DebugLevel.Debug)
-goal_pos = [0.01,0.01,0.0,1.15,1.2]
-#goal_pos = [0.01,0.01,0.0,1.15,1.2,0.55,0.0]
+goal_pos = [0.83,0.31,1.6,0.85,1.5]
 manipprob = interfaces.BaseManipulation(robot)
 manipprob.MoveManipulator(goal=goal_pos)
 robot.WaitForController(0)
+time.sleep(5)
